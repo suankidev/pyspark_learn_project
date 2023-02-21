@@ -12,14 +12,14 @@ log_path = "C:\\Users\\sujee\\pydev\\pyspark_learn_project\\resources\\output"
 adv_emp_log = log_path + '/adv_emp.log'
 
 logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
-
 formatter = logging.Formatter('%(asctime)s : %(levelname)s : %(name)s :  %(message)s')
-
 file_handler = logging.FileHandler(adv_emp_log)
+
 file_handler.setFormatter(formatter)
 
+logger.setLevel(logging.INFO)
 logger.addHandler(file_handler)
+
 
 '''End of advance logging config'''
 
