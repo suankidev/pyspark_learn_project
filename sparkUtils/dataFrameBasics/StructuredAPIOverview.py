@@ -3,7 +3,7 @@ Datasets
 DataFrames
 SQL tables and views
 """
-from common_utils.sparkUtils import getSparkSession
+from common_utils.sparkUtils import get_spark_session
 import pyspark.sql
 from pyspark.sql.types import *
 import datetime
@@ -53,4 +53,4 @@ class Chapter4:
 
 def chapter_call():
    myobj = Chapter4()
-   myobj.sparkTypes(getSparkSession())
+   myobj.sparkTypes(get_spark_session())
