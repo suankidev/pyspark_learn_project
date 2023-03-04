@@ -10,15 +10,14 @@ class CrefTestPack(RunTest):
         pass
 
     def create_file_df(self):
-        pass
+        print("ups1 file df is created!")
 
     def run_test(self):
-        print(f"file_path {self.file_path}")
-        print(f"table_name {self.table_name}")
+        self.create_file_df()
 
-    def __init__(self, file_path, table_name):
-        self.file_path = file_path
-        self.table_name = table_name
+    def __init__(self, args_list):
+        self.argument_list = args_list
+
 
 
 # obj = CrefTestPack('hdfs_file_path', 'd_fin_table')

@@ -1,18 +1,20 @@
-from file_based_checks.cref.CrefTestPack import CrefTestPack
+from file_based_checks.ups1.CrefTestPack import CrefTestPack
+from file_based_checks.ups2.GatewayCheck import GatewayCheck
 
 hdfs_path = "hdfs_location"
 table_name = "d_fin_table"
-location = 'cref'
+location = 'GATEWAY'
+
+argument_list = {'hdfs_file': hdfs_path, 'table_name': table_name, 'location': location}
 
 
-def init_check():
-    obj = None
-    if location == 'cref':
-        obj = CrefTestPack(hdfs_path, table_name)
-        return obj
-    return obj
+def init_check(checks='Default'):
+    run_test = {
+        'GATEWAY': GatewayCheck,
+        'CREF': CrefTestPack
+    }
+
+    return run_test[checks](argument_list)
 
 
-
-init_object = init_check()
-init_object.run_test()
+init_check(location).run_test()

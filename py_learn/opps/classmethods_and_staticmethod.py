@@ -29,7 +29,7 @@ class Emp:
 
     @classmethod
     def set_raise_amt(cls, amount):
-        cl s.raise_amount = amount
+        cls.raise_amount = amount
 
     @classmethod
     def create_emp(cls,emp_str):
@@ -65,8 +65,9 @@ emp_obj_1 = Emp.create_emp(emp_str_1)
 print(emp_obj_1.first)
 print(Emp.no_of_emps)
 
-import  datetime
+import datetime
 mydate = datetime.date(2023, 2, 17)
 
 print(Emp.is_workday(mydate))
+
 

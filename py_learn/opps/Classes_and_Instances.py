@@ -41,6 +41,3 @@ emp_2 = Emp('Demo', 'last', 70000)
 
 print(emp_1.first)
 print(emp_1.getfullname()) #is basically Employee.getfullname(emp_1)
-
-
-

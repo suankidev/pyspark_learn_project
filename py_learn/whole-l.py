@@ -242,7 +242,7 @@ print(set(mylist))
 
 
 """
-predefined functins/in build function
+predefined function / built in function
 user defined functions
 """
 
@@ -374,11 +374,18 @@ def sum(num):
 def variablLengthArgument(*n):
     sum(n)
 
+def var_args(*n):
+    print(n, len(n))
 
 variablLengthArgument(10)
 variablLengthArgument(10, 20)
 variablLengthArgument(10, 20, 30)
 
+# var_args(1, 2, 3, 'tst00') #(1, 2, 3, 'tst00')
+var_args((4, 5, 6), ('a', 'b', 'c')) #((4, 5, 6), ('a', 'b', 'c'))
+t = (2, 3, 4, 5, 6)
+var_args(t)  # ((2, 3, 4, 5, 6),)
+var_args(*t)  # (2, 3, 4, 5, 6)
 
 def variablLengthArgument1(name, *n):
     print(name, n)
@@ -406,6 +413,21 @@ a = ("ram", "shyam", "dhyan")
 
 print("{0} {1} {2}".format(*a))
 
+def var_args_key(**k):
+    print(type(k))
+    print(k)
+
+
+s = (1, 2, 3, 4, 5)
+s1 = 1, 2, 3, 4, 5
+s3 = {'one': 1, 'two': 2}
+
+# var_args_key(s) #TypeError: var_args_key() takes 0 positional arguments but 1 was given
+# var_args_key(s1) #TypeError: var_args_key() takes 0 positional arguments but 1 was given
+# var_args_key(s3) #TypeError: var_args_key() takes 0 positional arguments but 1 was given
+var_args_key(**s3)
+#print(**s3) #'one' is an invalid keyword argument for print()
+var_args_key(name='sujeet', age=29)
 # %%
 """
 A file of function and statement >> module >> package >>> libraray
@@ -434,7 +456,7 @@ print(x)
 
 # %%
 
-a, b, c = [eval(i) for i in input("Enter thre number with comma->").split(",")]
+a, b, c = [eval(i) for i in input("Enter three number with comma->").split(",")]
 
 print(a, b, c, sep="\t")
 
@@ -443,7 +465,7 @@ print(a, b, c, sep="\t")
 """
 
 import functools
-import imp
+import importlib
 from sys import argv
 import sys
 
@@ -526,8 +548,8 @@ print(c)
 
 """
 
-spcial operator
-1. identity     (for address comparision purpose) in and not in
+special operator
+1. identity     (for address comparison purpose) in and not in
 2. membership operator  is, is not
 
 """
@@ -678,7 +700,7 @@ l=s.split()
 for a given sequence
 l=list(sequence)
 len(list)
-coun(10)   //no of accurance available in string
+count(10)   //no of accurance available in string
 index(10)   //if it's not there then we will get error
 
 l.append(elsement) ------append only applicable to list
@@ -757,7 +779,7 @@ print(x * 10)
 """
 comparison operator in list
 x==y
-1. the number of elemnetsmust be equal
+1. the number of elemnets must be equal
 2. the order should be same
 3. the contain should be same( including case)
 
@@ -786,13 +808,13 @@ print(x)
 # %%
 
 """
-
 nested lists:
 a list inside another list
 list comprehension
 
 list=[expression for x in sequence]
 list=[expression for x in sequence if condition ]
+
 """
 
 a = [1, 2, 3, 4, 5, [56, 6, 666, 7, 8, 9]]
@@ -1286,7 +1308,7 @@ function Decorators:
 decorators help to make our code shorter and more
 pythonic
 
-without modifying exising function we are able to provide
+without modifying existing function we are able to provide
 extra functionality
 
 it take function as argument and provide some extra functionality
@@ -1319,7 +1341,6 @@ wish('sunny')
 
 # %%
 
-
 def suankideor(func):
     def inner(name):
         if name == 'sunny':
@@ -1328,7 +1349,6 @@ def suankideor(func):
             func(name)
 
     return inner
-
 
 def wish(name):
     print('hello {} good evening'.format(name))
@@ -1417,7 +1437,7 @@ print(type(l))
 """generator is functions which generate
 
     yield
-
+    
     Yield is a keyword in Python that is used to return from a
     function without destroying the states of its local variable and
     when the function is called, the execution starts from the last yield statement.
@@ -1511,7 +1531,7 @@ prod(10, 20)
 
 # %%
 import time
-from imp import reload
+from importlib import reload
 import module1
 
 print("first line of in reloaded import")
@@ -1594,7 +1614,7 @@ print(random.randrange(1, 11, 2))  # 1,3,5,7,9
 print(random.randrange(1, 100, 2))
 
 print()
-print("choice is use generate randome from list ")
+print("choice is use generate random from list ")
 
 l = [x for x in range(1, 10)]
 
@@ -1655,7 +1675,7 @@ excetion handling in python
 2. Runtime error
 
 
-in exception handling onlye runtime error is going to handle
+in exception handling only runtime error is going to handle
 
 
 e.g.
@@ -1691,7 +1711,7 @@ Exception     SystemExit   GeneratorExit             KeyBoradInterrupt
 AttributeError
 ArithmaticError---->>ZeroDivisionError,FloatingPointError,OverflowError
 EOFError
-NAmeError
+NameError
 LookupError---->>IndexError,KeyError
 OSError-->>FileNotFoundError,InterruptedError, PermissionError,TimeOutError
 TypeError
@@ -1994,7 +2014,8 @@ a--append
 r+  read and write , previous date not deleted, point to first line only
 w+  write and read, overwrite existing data
 a+  append and then read
-x   open a file in exclusive creation mode(write the data and file should not be there) for write operation
+x   open a file in exclusive creation mode(write the data and file should
+ not be there) for write operation
        otherwise FileExistsError(if file alreay there)
 
 for binary file mode append b:

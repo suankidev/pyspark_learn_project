@@ -5,7 +5,6 @@ import sys
 from pyspark.sql.functions import col
 from pyspark.sql.types import StructType, StructField, StringType
 
-
 def get_spark_session():
     # os.environ['PYSPARK_PYTHON'] = sys.executable
     # os.environ['PYSPARK_DRIVER_PYTHON'] = sys.executable
