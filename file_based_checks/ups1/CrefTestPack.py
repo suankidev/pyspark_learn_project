@@ -18,6 +18,8 @@ class CrefTestPack(RunTest):
     def __init__(self, args_list):
         self.argument_list = args_list
 
+    def __str__(self):
+        return 'CrefTestPack'
 
 
 # obj = CrefTestPack('hdfs_file_path', 'd_fin_table')
